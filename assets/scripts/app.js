@@ -9,6 +9,12 @@ let currentPlayerHealth = chosenMaxLife
 
 adjustHealthBars(chosenMaxLife);
 
+function reset() {
+  currentPlayerHealth = chosenMaxLife;
+  currentMonsterHealth = chosenMaxLife;
+  resetGame(chosenMaxLife);
+}
+
 function playSound(s) {
   const sound = document.getElementById(s);
   sound.play();
@@ -51,6 +57,9 @@ function attackMonster(mode) {
   } else if (currentMonsterHealth <= 0 && currentPlayerHealth <= 0) {
     alert('You have a draw!');
   } 
+  if (currentMonsterHealth <= 0 || currentPlayerHealth <= 0) {
+    reset();
+  }
 
 }
 
